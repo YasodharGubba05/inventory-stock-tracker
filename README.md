@@ -1,9 +1,10 @@
 # Inventory & Stock Movement Tracking Service
 
+**Author:** Yasodhar Gubba
+
 A production-ready FastAPI backend for single-warehouse inventory tracking. Every quantity change is recorded as an **immutable, append-only** stock movement inside a single database transaction — with row-level locking to prevent concurrent sales from driving stock negative.
 
-[![CI](https://github.com/karthik-cherukuru/stock_movement/actions/workflows/ci.yml/badge.svg)]
-(https://github.com/karthik-cherukuru/stock_movement/actions/workflows/ci.yml)
+[![CI](https://github.com/YasodharGubba05/inventory-stock-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/YasodharGubba05/inventory-stock-tracker/actions/workflows/ci.yml)
 
 ## Quick Start (Docker — recommended)
 
