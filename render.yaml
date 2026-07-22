@@ -20,3 +20,5 @@ services:
         value: INFO
       - key: LOG_JSON
         value: "true"
+      - key: PORT
+        value: 8000

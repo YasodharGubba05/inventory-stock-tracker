@@ -42,7 +42,7 @@ def setup_logging(log_level: str = "INFO", json_logs: bool = True) -> None:
     root.addHandler(handler)
     root.setLevel(log_level.upper())
 
-    for name in ("uvicorn", "uvicorn.access", "uvicorn.error", "sqlalchemy.engine"):
+    for name in ("sqlalchemy.engine",):
         logging.getLogger(name).setLevel(logging.WARNING)
 
 
