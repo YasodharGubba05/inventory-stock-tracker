@@ -161,6 +161,12 @@ In a distributed network, local databases may experience replication lag:
 
 ## ☁️ Deployment
 
+### 🚀 Live Demo
+The service is deployed and publicly accessible:
+*   **Interactive API Docs (Swagger):** [https://inventory-service-rb7q.onrender.com/docs](https://inventory-service-rb7q.onrender.com/docs)
+*   **Base URL (JSON Entrypoint):** [https://inventory-service-rb7q.onrender.com/](https://inventory-service-rb7q.onrender.com/)
+*   **System Health Check:** [https://inventory-service-rb7q.onrender.com/api/v1/health](https://inventory-service-rb7q.onrender.com/api/v1/health)
+
 ### Production Deployment to Render
 This project includes a `render.yaml` Blueprint spec file that automatically spins up a PostgreSQL database and a FastAPI Docker container on Render's free tier.
 
@@ -170,4 +176,5 @@ This project includes a `render.yaml` Blueprint spec file that automatically spi
 4. Connect your GitHub repository.
 5. Render will automatically read the `render.yaml` spec and prompt you to create the services. Click **Apply**.
 6. Render will automatically provision the PostgreSQL database, build the Docker container, link the `DATABASE_URL` environment variable, run alembic migrations, seed mock data, and expose the API publicly.
+
 
