@@ -2,7 +2,7 @@
 
 **Author:** Yasodhar Gubba  
 **Version:** 1.0.0  
-**Target Environment:** Production (Docker, Railway)
+**Target Environment:** Production (Docker, Render)
 
 [![CI](https://github.com/YasodharGubba05/inventory-stock-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/YasodharGubba05/inventory-stock-tracker/actions/workflows/ci.yml)
 [![FastAPI](https://img.shields.io/badge/Framework-FastAPI-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
@@ -161,12 +161,13 @@ In a distributed network, local databases may experience replication lag:
 
 ## ☁️ Deployment
 
-### Production Deployment to Railway
+### Production Deployment to Render
+This project includes a `render.yaml` Blueprint spec file that automatically spins up a PostgreSQL database and a FastAPI Docker container on Render's free tier.
+
 1. Push this repository to your GitHub account.
-2. In [Railway](https://railway.app), click **New Project** -> **Deploy from GitHub repo**.
-3. Add a **PostgreSQL** database service to the project.
-4. Set the following environment variables in your web service:
-   * `DATABASE_URL`: `${{Postgres.DATABASE_URL}}`
-   * `LOG_LEVEL`: `INFO`
-   * `LOG_JSON`: `true`
-5. Generate a domain name under **Settings** -> **Networking** to expose the public endpoint.
+2. Log in to [Render](https://render.com).
+3. Go to **Blueprints** and click **New Blueprint Instance** (or **New** -> **Blueprint**).
+4. Connect your GitHub repository.
+5. Render will automatically read the `render.yaml` spec and prompt you to create the services. Click **Apply**.
+6. Render will automatically provision the PostgreSQL database, build the Docker container, link the `DATABASE_URL` environment variable, run alembic migrations, seed mock data, and expose the API publicly.
+
