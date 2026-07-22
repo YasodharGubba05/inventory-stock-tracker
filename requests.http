@@ -1,0 +1,58 @@
+# Inventory Service — API examples
+# Use with VS Code REST Client, IntelliJ HTTP Client, or similar.
+
+@baseUrl = http://localhost:8000/api/v1
+
+### Health
+GET {{baseUrl}}/health
+
+### Create product
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "sku": "SKU-DEMO",
+  "name": "Demo Widget",
+  "quantity_on_hand": 100
+}
+
+### List products
+GET {{baseUrl}}/products?limit=10&offset=0
+
+### Low stock
+GET {{baseUrl}}/products/low-stock?threshold=10
+
+### Record RESTOCK
+POST {{baseUrl}}/products/{{productId}}/movements
+Content-Type: application/json
+Idempotency-Key: restock-demo-001
+
+{
+  "movement_type": "RESTOCK",
+  "quantity": 50
+}
+
+### Record SALE
+POST {{baseUrl}}/products/{{productId}}/movements
+Content-Type: application/json
+
+{
+  "movement_type": "SALE",
+  "quantity": 5
+}
+
+### Record ADJUSTMENT
+POST {{baseUrl}}/products/{{productId}}/movements
+Content-Type: application/json
+
+{
+  "movement_type": "ADJUSTMENT",
+  "quantity": -2,
+  "reason": "Damaged units removed"
+}
+
+### Movement history
+GET {{baseUrl}}/products/{{productId}}/movements?limit=20
+
+### Movement summary
+GET {{baseUrl}}/products/{{productId}}/movements/summary
